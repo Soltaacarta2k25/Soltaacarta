@@ -1,5 +1,4 @@
 # Soltaacarta
-Projeto USJT
 Gabriel Gardilin Passos Avelino  823124421 
 Giovanni Bolsoni Fernandes 824125317
 Kayque Braga da Silva 824118930  

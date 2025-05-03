@@ -60,7 +60,7 @@ function App() {
           />
 
           <button type="submit" className="botao">
-            Gerar Conteúdo
+            Gerar conteúdo
           </button>
         </form>
 

@@ -2,11 +2,14 @@ import { useState } from 'react'
 import './App.css'
 import Header from './Header'
 
+
+
 function App() {
   // Estados
   const [tipo, setTipo] = useState('post')
   const [entrada, setEntrada] = useState('')
   const [resposta, setResposta] = useState('')
+
 
   // definir o texto de acordo com seleção
   const obterPlaceholder = () => {
@@ -24,9 +27,10 @@ function App() {
     }
   }
 
+  
   // Função chamada ao enviar o formulário
-  const handleSubmit = (e) => {
-    e.preventDefault()
+  const handleSubmit = (props) => {
+    props.preventDefault()
     // Aqui futuramente chamaremos o backend com a API do Gemini
     setResposta('Simulação de resposta da IA para: ' + entrada)
   }
@@ -42,7 +46,7 @@ function App() {
           <select
             id="tipo"
             value={tipo}
-            onChange={(e) => setTipo(e.target.value)}
+            onChange={(props) => setTipo(props.target.value)}
           >
             <option value="post">Post de rede social</option>
             <option value="titulo">Título chamativo</option>
@@ -67,7 +71,7 @@ function App() {
         {resposta && (
           <div className="resposta">
             <h2>Resposta da IA:</h2>
-            <p>{resposta}</p>
+            <p style={{color: 'black'}}>{resposta}</p>
           </div>
         )}
       </main>

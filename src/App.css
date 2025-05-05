@@ -24,16 +24,14 @@ html, body {
 /* Container principal */
 .app {
   width: 100%;
-  max-width: 700px;
+  height: 100vh;
   padding: 2rem;
-  background-color: #1a1a2e;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-  border-radius: 12px;
-
+  background-color: #0e0e2c; 
+  box-shadow: none;
+  border-radius: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  min-height: 80vh;
+  align-items: center;
 }
 
 /* Título */
@@ -87,7 +85,8 @@ button {
 }
 
 button:hover {
-  background-color: #1e40af;
+  transform: scale(1.01);
+  transition: all 0.2s ease-in-out;
 }
 
 /* Resposta da IA */
@@ -110,6 +109,8 @@ button:hover {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
+  box-shadow: 0 8px 20px rgba(254, 254, 255, 0.2);
+  border-radius: 12px;
 }
 
 .row {

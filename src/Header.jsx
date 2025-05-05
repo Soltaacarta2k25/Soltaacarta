@@ -8,7 +8,7 @@ function Header() {
           ></i>
           GENERATE AI 
         </h1>
-        <p>Use a inteligência artificial para criar textos incríveis!</p>
+        <p><strong>Use a inteligência artificial para criar textos incríveis!</strong></p>
 
         <link
           rel="stylesheet"

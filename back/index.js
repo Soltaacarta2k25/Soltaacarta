@@ -1,3 +1,7 @@
+import("dotenv").config() 
+
+
+
 const {GoogleGenAI} = require ('@google/genai')
 const express = require('express');//é um endpoint
 const app = express();
@@ -9,7 +13,7 @@ app.use(express.json());//para o express entender o que está sendo enviado no b
 //Funcionalidade () => {}: o que o usuário vai fazer quando acessar o navegador (o que se deja que o servidor faça)
 
 app.post('/pergunte-ao-gemini', async (req, res) => {
-    const ai = new GoogleGenAI({ apiKey: "AIzaSyCFme3tyNKIigpCAPKXLx04uFi3Cc-W230" });
+    const ai = new GoogleGenAI({ apiKey: process.env.GOOGLE_API_KEY });
     const prompt = req.body.prompt
     const response = await ai.models.generateContent({
         model: "gemini-2.0-flash",

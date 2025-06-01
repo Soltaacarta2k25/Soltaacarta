@@ -28,12 +28,42 @@ function App() {
   }
 
   
-  // Função chamada ao enviar o formulário
-  const handleSubmit = (props) => {
-    props.preventDefault()
-    // Aqui futuramente chamaremos o backend com a API do Gemini
-    setResposta('Simulação de resposta da IA para: ' + entrada)
+ // Função chamada ao enviar o formulário
+const handleSubmit = async (e) => {
+  e.preventDefault()   // Impede de recarregar a página no submit
+
+  // 1) Mostrar algo na tela enquanto carrega (opcional, mas encorajador):
+  setResposta('Carregando...')
+
+  try {
+    // 2) Montar o objeto que o back espera: { prompt: "texto digitado" }
+    const payload = { prompt: entrada }
+
+    // 3) Fazer a chamada ao back-end
+    const response = await fetch('http://localhost:3000/pergunte-ao-gemini', {
+      method: 'POST',                        // método HTTP POST
+      headers: {
+        'Content-Type': 'application/json'   // vamos enviar JSON
+      },
+      body: JSON.stringify(payload)          // converte payload para string JSON
+    })
+
+    // 4) Verificar se deu certo (status 2xx). Se não, tratar como erro.
+    if (!response.ok) {
+      throw new Error(`Erro na chamada: ${response.status}`)
+    }
+
+    // 5) Pegar o JSON que o back enviou (que tem { resposta: "texto da IA" })
+    const data = await response.json()
+
+    // 6) Atualizar o estado para exibir a resposta na tela
+    setResposta(data.resposta)
+
+  } catch (error) {
+    console.error('Erro ao chamar o back-end:', error)
+    setResposta('Desculpe, ocorreu um erro ao obter a resposta da IA.')
   }
+}
 
   return (
     <div className="app">

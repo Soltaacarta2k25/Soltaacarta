@@ -1,7 +1,15 @@
 require('dotenv').config()
+
 const express = require ('express')
 const { GoogleGenAI } = require ('@google/genai')
+const cors = require('cors');
+
 const app = express()
+
+app.use(cors({
+  origin: 'http://localhost:5173' // só permite chamadas vindas do seu frontend
+}))
+
 app.use(express.json())
 
 //endpoint: método HTTP, padrão de acesso, funcionalidade

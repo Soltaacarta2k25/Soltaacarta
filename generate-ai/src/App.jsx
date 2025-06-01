@@ -43,11 +43,7 @@ function App() {
         
         <form onSubmit={handleSubmit} className="formulario">
           <label htmlFor="tipo">Tipo de conteúdo:</label>
-          <select
-            id="tipo"
-            value={tipo}
-            onChange={(props) => setTipo(props.target.value)}
-          >
+          <select id="tipo" value={tipo} onChange={(props) => setTipo(props.target.value)}>
             <option value="post">Post de rede social</option>
             <option value="titulo">Título chamativo</option>
             <option value="resumo">Resumo de texto</option>
@@ -80,4 +76,3 @@ function App() {
 }
 
 export default App
-

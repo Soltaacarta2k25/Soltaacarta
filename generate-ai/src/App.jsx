@@ -94,7 +94,6 @@ function App() {
         {resposta && (
           <div className="resposta">
             <h2>Resposta da IA:</h2>
-            {/* Aqui usamos <div> com CSS para respeitar \n */}
             <div
               style={{
                 color: 'black',
